@@ -1,0 +1,66 @@
+body {
+	font-family: 'PT Sans', cursive;
+	background-color: black;
+}
+
+#wrapper {
+	/*background-color: black;*/
+	margin:auto;
+
+}
+
+
+#myheader, h1 {
+	color:red;
+	font-size: 100px;
+	border-bottom: 1px solid red;
+	margin-bottom: 20px;
+}
+
+#content{
+	background-color: gray;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.list {
+	background-color: #333333;
+	color: white;
+	margin-left: 50px;
+	width:950px;
+	/*margin-right: 300px*/
+	/*width: 60%;*/
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.my-list-item {
+	font-size: 22px;
+	display:inline;
+	overflow:hidden;
+	padding-right: 20px;
+}
+
+.my-list-item a {
+	color: purple;
+}
+
+.my-list-item a:visited {
+	color: green;
+}
+
+.my-list-item a:hover {
+	color: red;
+}
+
+.cat {
+	margin-left: 50px;
+}
+
+footer {
+	padding-left: 50px;
+	padding-top:10px;
+	margin-top: 10px;
+	border-top: 1px solid red;
+	color: #808080;
+}
