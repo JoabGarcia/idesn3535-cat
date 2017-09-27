@@ -8,25 +8,30 @@
 <style>
 
 #content {
-	display:flex;
+	display:grid;
+	grid-template: 4/ 4;
 }
 
 #sections {
-	display:flex;
-	flex-direction: column;
-	flex:3;
+	grid-area: 1 /  1 / 4 / 3;
+	
+
 }
 
 
 .section {
-	flex:1;
-
+	padding: 10px;
+	margin: auto;
 }
 
 #sidebar {
 	background-color: aqua;
+	grid-area: 1 / 3 / 4 / 4;
 
-	flex: 1;
+}
+
+#sidebar p {
+	padding: 10px;
 }
 
 
@@ -92,7 +97,8 @@ Letterpress unicorn cray messenger bag mlkshk direct trade sriracha readymade 90
 </div>
 
 <div id="sidebar">
-Letterpress unicorn cray messenger bag mlkshk direct trade sriracha readymade 90's pop-up fingerstache. Twee shabby chic schlitz jean shorts. Fashion axe gluten-free austin, slow-carb echo park gastropub humblebrag. Try-hard taxidermy raclette narwhal, leggings beard biodiesel. Snackwave gentrify art party artisan. Butcher fanny pack kombucha organic hot chicken bushwick. Typewriter selfies thundercats vexillologist pour-over, chartreuse disrupt wolf lomo coloring book sustainable umami celiac chicharrones hell of. Man braid lo-fi bespoke, ennui salvia gentrify distillery affogato. Keytar art party forage, single-origin coffee godard authentic cold-pressed air plant blue bottle skateboard 8-bit YOLO mumblecore deep v keffiyeh. Bushwick microdosing vinyl gluten-free, pour-over normcore fashion axe roof party man bun typewriter af flexitarian. Messenger bag sriracha meditation chicharrones letterpress, jean shorts unicorn kale chips mixtape photo booth flannel pickled quinoa bicycle rights leggings. Blue bottle yuccie 3 wolf moon trust fund, vegan thundercats artisan.
+<p>Letterpress unicorn cray messenger bag mlkshk direct trade sriracha readymade 90's pop-up fingerstache. Twee shabby chic schlitz jean shorts. Fashion axe gluten-free austin, slow-carb echo park gastropub humblebrag. Try-hard taxidermy raclette narwhal, leggings beard biodiesel. Snackwave gentrify art party artisan. Butcher fanny pack kombucha organic hot chicken bushwick. Typewriter selfies thundercats vexillologist pour-over, chartreuse disrupt wolf lomo coloring book sustainable umami celiac chicharrones hell of. Man braid lo-fi bespoke, ennui salvia gentrify distillery affogato. Keytar art party forage, single-origin coffee godard authentic cold-pressed air plant blue bottle skateboard 8-bit YOLO mumblecore deep v keffiyeh. Bushwick microdosing vinyl gluten-free, pour-over normcore fashion axe roof party man bun typewriter af flexitarian. Messenger bag sriracha meditation chicharrones letterpress, jean shorts unicorn kale chips mixtape photo booth flannel pickled quinoa bicycle rights leggings. Blue bottle yuccie 3 wolf moon trust fund, vegan thundercats artisan.
+</p>
 </div>
 
 
