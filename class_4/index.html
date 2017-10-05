@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>More Javascript!</title>
+	
+		<script>
+			// var variable1 = "One";
+			// let variable2 = "Two";
+			// const variable3 = "Three";
+
+			// console.log(variable3);
+			
+			// console.log(true);
+			// console.log(false);
+
+
+			// if (true) {
+			// 	console.log("It's True!");
+			// }
+
+			// else {
+			// 	console.log("It's False :(");
+			// }
+
+			// Objects
+
+			// const fruits = {
+			// 	apple: "A red fruit"
+			// 	orange: "An orange fruit"
+			// }
+
+		const user1 = {
+                name: "Brett",
+                email: "bvandorn@lesley.edu",
+                gender: "male",
+                age: 26
+            }
+            const user2 = {
+                name: "Joe",
+                email: "joe@lesley.edu",
+                gender: "male",
+                age: 21
+            }
+
+            const users = [user1, user2];
+
+
+			//Arrays
+
+			// const array1 = [1, 2, 3, 4];
+			// const array2 = []
+
+			// function concat(array1, arrat2){
+
+			// }
+
+			// Loops
+            // for loop
+          let i;
+          for (i = 0; i < users.length; i++) {
+              let user = users[i];
+              console.log(user.name + " is " + user.age + " years old");
+              console.log(`${user.name} is ${user.age} years old`);
+          }
+
+          const usersThatCanRentAnSUV = users.filter(function(user) {
+                return false;
+            });
+
+
+            function concat(array1, array2){
+                const newArray = [];
+
+                // I need to push every element of array1 into my new array
+                array1.forEach(function(element){
+                    newArray.push(element);
+                });
+
+                // I need to push every element of array2 into my new array
+                array2.forEach(function(element){
+                    newArray.push(element);
+                });
+
+                return newArray;
+            }
+				// forEach
+				// filter
+		</script>
+
+		<script>
+		const me = "Joab";
+		</script>
+
+
+	</head>
+
+<body>
+
+<h1>Hello</h1>
+
+<a href="colors.html">Colors</a>
+
+<script>
+const h1s = document.getElementsByTagName('h1');h1s[0].innerText = "Hello, " + me;
+
+</script>
+
+
+</body>
+
+</html>

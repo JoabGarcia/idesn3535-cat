@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Colors</title>
+
+
+<style>
+
+.buttons {
+	text-align: center;
+	margin-bottom: 20px ;
+}
+
+
+
+#splotch {
+	margin:auto;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+
+.red {
+	background:red;
+
+}
+
+.blue {
+	background: blue;
+}
+
+.red.blue {
+	background: purple;
+
+}
+
+.yellow {
+	background: yellow;
+}
+
+.yellow.blue{
+	background: green;
+}
+
+.red.yellow{
+	background: orange;
+}
+
+.enabled {
+	background:green;
+	border: none;
+}
+
+
+
+
+</style>
+	</head>
+
+<body>
+
+<div class="buttons">
+
+	<button class="button" onclick="red()">Red</button>
+
+	<button class="button" onclick="yellow()">Yellow</button>
+
+	<button class="button" onclick="blue()">Blue</button>
+
+</div>
+
+<div id="splotch"></div>
+
+<script>
+
+function red() {
+	document.getElementById("splotch").classList.toggle("red");
+	event.currentTarget.classList.toggle("enabled");
+
+}
+
+function blue() {
+	document.getElementById("splotch").classList.toggle("blue");
+	event.currentTarget.classList.toggle("enabled");
+}
+
+function yellow() {
+	document.getElementById("splotch").classList.toggle("yellow");
+	event.currentTarget.classList.toggle("enabled");
+
+}
+
+
+</script>
+	
+
+
+</body>
+
+</html>
