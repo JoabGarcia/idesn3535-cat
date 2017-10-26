@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Timer</title>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+ <script>
+
+ 	let seconds = 0;
+
+ 	function displayTime(amountofSeconds) {
+ 		
+
+ 		let hrs = 0;
+ 		let mins = 0;
+
+ 		while (amountofSeconds >= 3600) {
+
+ 			hrs++;
+
+ 			amountofSeconds = amountofSeconds - 3600;
+ 		}
+
+ 		while (amountofSeconds >= 60) {
+
+ 			mins++;
+
+ 			amountofSeconds = amountofSeconds - 60;
+ 		}
+
+ 		$("#hours").text(hrs);
+ 		$("#minutes").text(mins);
+ 		$("#seconds").text(amountofSeconds);
+	}
+
+	$(document).ready(function() {
+
+		$(".control-button").on('click', function () {
+
+			const amount = parseInt($(this).data("amount"));
+
+			seconds += amount;
+
+			seconds = Math.max(seconds, 0);
+
+			displayTime(seconds);
+		});
+
+
+	let timer;
+	function tick() {
+		seconds--;
+
+		seconds = Math.max(seconds, 0);
+
+		displayTime(seconds);
+	}
+
+	$("#start-button").on('click', function () {
+		if (timer) {
+			clearInterval(timer);
+			timer = false;
+		} else {
+			timer = setInterval(tick, 1000);
+		}
+	});
+
+	// $("#hours").padStart("1", 5);
+
+
+	});
+
+
+ </script>
+
+ <style>
+ body {
+ 	font-family: "Helvetica", sans-serif;
+ }
+
+ #wrapper {
+ 	margin: auto;
+ 	text-align: center;
+ 	background: gray;
+ 	width: 300px;
+ 	padding: 20px;
+ }
+
+ button {
+ 	border-radius: 50%;
+ 	background: black;
+ 	color: white;
+ 	font-size: 15px;
+ }
+
+#hours, #minutes, #seconds {
+	font-size: 50px;
+	color: white;
+}
+
+
+ </style>
+
+</head>
+
+<body>
+<div id="wrapper">
+
+	<div id="timer">
+	<span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+	</div>
+
+	<div id="control-buttons">
+		<div>
+		<br><div>Hours</div>
+		<button class="control-button" data-amount="-3600">-</button>
+		<button class="control-button" data-amount="3600">+</button>
+		</div>
+
+		<br>
+		<div>Minutes</div>
+		<button class="control-button" data-amount="-60">-</button>
+		<button class="control-button" data-amount="60">+</button>
+		
+
+		<br>
+		<div>Seconds</div>
+		<button class="control-button" data-amount="-1">-</button>
+		<button class="control-button" data-amount="1">+</button>
+	</div>
+
+	<br><button id="start-button">Start</button>
+
+	</div>
+
+</div>
+
+</body>
+
+</html>
