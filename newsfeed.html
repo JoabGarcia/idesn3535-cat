@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Ny Times</title>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+<script>
+
+$(document).ready(function() {
+
+var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+
+var apiKey = "e1d5dffe0efb4e2f86dc7ae17d97e8b1"
+
+$.ajax({
+	url: url,
+	data: {
+		'api-key': apiKey
+	},
+	success: function(result){
+		const articles = result.response.docs;
+
+		const articleList = document.createElement('ul');
+		$("#main").append(articleList);
+
+		articles.forEach(function(article){
+			const articleItem = document.createElement('li');
+
+			const articleHeader = document.createElement('h2');
+			articleHeader.innerHTML = article.headline.main;
+			articleItem.append(articleHeader);
+
+			articleList.append(articleItem);
+
+			if (article.multimedia.length > 0 && article.multimedia[0].type === "image"){
+				const articleImage = document.createElement('img');
+
+				articleImage.src = "https://nytimes.com/" + article.multimedia[0].url;
+				articleItem.append(articleImage);
+				articleItem.classList.add('has-image');
+			}
+
+			const articleSummary = document.createElement('p');
+			articleSummary.innerHTML = article.snippet;
+			articleItem.append(articleSummary);
+			// articleItem.classList.add('text');
+			articleSummary.classList.add('sum');
+
+			const pubDate = document.createElement('div');
+			pubDate.classList.add('pub-date');
+			pubDate.innerText = new Date(article.pub_date);
+			articleItem.append(pubDate);
+
+
+		});
+
+		// console.log(articles);
+	},
+	error: function(err){
+		throw err;
+	}
+})
+
+});
+
+
+
+</script>
+
+<style>
+
+#main {
+	font-family: "helvitica" , sans-serif;
+}
+
+.has-image img{
+	width: 200px;
+	height: 200px;
+	display:inline-block;
+	float:left;
+	overflow:auto;
+	margin: 0px 15px 0 0;
+	clear: both;
+}
+
+.has-image {
+	height: auto;
+	overflow: auto;
+}
+
+.sum {
+	font-size: 15px;
+	padding: 0px 10px 0px 10px;
+	/*margin-left: 10px;*/
+}
+
+.pub-date {
+	font-size: 10px;
+}
+
+li {
+	clear: both;
+	margin: 20px 0 20px 0;
+	padding: 10px 10px 10px 10px;
+	height: auto;
+	border: 1px solid grey;
+	background: #D3D3D3;
+}
+
+
+</style>
+
+
+</head>
+
+<body>
+
+<div id="main"></div>
+
+</body>
+
+</html>
+
+
+
