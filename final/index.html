@@ -7,15 +7,73 @@
 
 <title>Final Project</title>
 
+<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 <script src="utiles.js"></script>
+
+<script src="template.js.html"></script>
+
 <link rel="stylesheet" type="text/css" href="normalize.css">
 <link rel="stylesheet" type="text/css" href="styles.css">
+
+<link rel="stylesheet" type="text/css" href="../slick-1.8.0/slick/slick.css"/>
+
+
+<script type="text/javascript" src="../slick-1.8.0/slick/slick.min.js"></script>
 
 <script>
 
 $(document).ready(function(){
+
+
+	$.ajax({
+  url: "http://www.bvandorn.com/idesn-3535/apis/cat.json",
+  success: function(response){
+    console.log(response);
+
+				$("body").prepend(getTemplate(headerTemplate, {class: 'page', title: 'Recommendations'}) );
+
+
+
+					$('.your-class').slick({
+					autoplay: false
+
+					});
+
+
+					$("#by_band").click(function(){
+			        	$("#playlist").hide();
+			        	$("#player").show();
+
+			    	});
+
+			    	$("#by_list").click(function(){
+			        	$("#player").hide();
+			        	$("#playlist").show();
+			    	});
+
+			    	// $("#sucks").click(){
+			    	// 	if (mood !== "Everything Sucks") {
+			    	// 		$("#player").hide(iframe);
+			    	// 	}
+			    	// };
+
+			    	$("#sucks").click(function(){
+
+			    		const mood = response.moods[0]
+
+			    		if (mood !== 0) {
+			    			moods[1, 2, 3, 4].hide();
+			    		}
+			    	});
+
+
+
+
+	 }
+});
 
 
 });

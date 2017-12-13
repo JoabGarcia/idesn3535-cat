@@ -1,0 +1,123 @@
+const headerTemplate = `
+	<header>
+
+
+	<div id ="title" class="{{class}}">
+
+	<h1>{{title}}</h1>
+
+
+	  <div class="dropdown">
+	  <button class="dropbtn">Mood</button>
+	  
+	  <div class="dropdown-content">
+	    <p id="sucks">Everything Sucks</p>
+	    <p>Can't Sleep</p>
+	    <p id="bitter">Bitter</p>
+	    <p>Just Jammin</p>
+	    <p>Leave Me Alone</p>
+	 </div>
+	 
+	  </div>
+
+	  <p id="tabs"><span id="by_band"> Artist</span> | <span id="by_list">Playlist </span></p>
+
+	</div>
+	</header>
+
+	<!-- add separate player for each band, then use slick slider we learned about in class to scroll through each band's player -->
+
+	<div id="player" class="your-class">
+
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:album:7EFJuLIkdk0sqeLbEdO7I1&theme=white&view=coverart" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:album:4XOJCBjxUbqrbSJkBrjlDu&view=coverart" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:album:7fTow6HHIe3a4HxTfVYnOa&view=coverart" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:album:1WDAhs6x27Am5mXxl2PL4s&view=coverart" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:album:7Aih2kdbTzLFV2mbfTs5OR&view=coverart" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:album:09JUa3tcSoeCHMmC7G0fa4&view=coverart" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+
+	</div>
+
+
+
+	<div id="playlist" class="your-class">
+
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:album:7EFJuLIkdk0sqeLbEdO7I1" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:artist:5BIOo2mCAokFcLHXO2Llb4" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:album:7fTow6HHIe3a4HxTfVYnOa" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:artist:4qrHkx5cgWIslciLXUMrYw" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:album:7Aih2kdbTzLFV2mbfTs5OR" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+		<div>
+			<iframe src="https://open.spotify.com/embed?uri=spotify:album:09JUa3tcSoeCHMmC7G0fa4" width="640" height="720" frameborder="0" allowtransparency="true"></iframe>
+		</div>
+
+
+
+
+	</div>
+
+<!-- 	<h1>{{title}}</h1> -->
+
+`;
+
+	
+	const footerTemplate = `
+	<footer>
+	<p class="footer">This is my footer, finally figured it out</p>
+
+	</footer>
+
+`;
+
+
+
+
+const infoTemplate = `
+
+<div id="info">
+
+<h2>{{title}}</h2>
+
+</div>
+
+
+
+
+
+
+`;
