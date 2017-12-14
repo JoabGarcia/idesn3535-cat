@@ -18,8 +18,13 @@
 <link rel="stylesheet" type="text/css" href="normalize.css">
 <link rel="stylesheet" type="text/css" href="styles.css">
 
+<link rel="stylesheet" type="text/css" href="../slick-1.8.0/slick/slick.css"/>
+
+
+<script type="text/javascript" src="../slick-1.8.0/slick/slick.min.js"></script>
+
 <script>
-let api;
+// let api;
 $(document).ready(function(){
 
 
@@ -30,12 +35,28 @@ $.ajax({
     console.log(response);
     api = response;
 
+    let currentAlbum;
+    let artist = getParameterByName('artist');
+    let title = getParameterByName('title');
+    let spotify = getParameterByName('spotify')
+
+    response.albums.forEach(function(album){
+      if (album.title === title) {
+        currentAlbum = album;
+      }
+    })
+
     
         $("body").prepend(getTemplate(infoTemplate, {class: 'moreinfo', title: 'band' }) );
 
     $("body").prepend(getTemplate(headerTemplate, {class: 'artist', title: 'Artist'}) );
 
-    $('iframe').hide();
+    $('#player').hide();
+    // $('#playlist').hide();
+
+    $("h2").text(currentAlbum.title)
+    $("p").text(currentAlbum.artist)
+    $("span").text(currentAlbum.spotify)
 
 
 
@@ -54,7 +75,6 @@ $.ajax({
 </head>
 
 <body>
-Hi
 
 </body>
 

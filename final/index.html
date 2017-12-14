@@ -32,6 +32,7 @@ $(document).ready(function(){
   url: "http://www.bvandorn.com/idesn-3535/apis/cat.json",
   success: function(response){
     console.log(response);
+    api = response;
 
 				$("body").prepend(getTemplate(headerTemplate, {class: 'page', title: 'Recommendations'}) );
 
@@ -62,11 +63,33 @@ $(document).ready(function(){
 
 			    	$("#sucks").click(function(){
 
-			    		const mood = response.moods[0]
+			    		$(".bitter,.nosleep,.jammin,.alone").hide();
+			    		$(".sucks").show();
+			    	});
 
-			    		if (mood !== 0) {
-			    			moods[1, 2, 3, 4].hide();
-			    		}
+			    	$("#nosleep").click(function(){
+
+			    		$(".bitter,.sucks,.jammin,.alone").hide();
+			    		$(".nosleep").show();
+
+			    	});
+
+			    	$("#bitter").click(function(){
+
+			    		$(".nosleep,.sucks,.jammin,.alone").hide();
+			    		$(".bitter").show();
+			    	});
+
+			    	$("#alone").click(function(){
+
+			    		$(".bitter,.sucks,.jammin,.nosleep").hide();
+			    		$(".alone").show();
+			    	});
+
+			    	$("#jammin").click(function(){
+
+			    		$(".bitter,.sucks,.nosleep,.alone").hide();
+			    		$(".jammin").show();
 			    	});
 
 
@@ -83,7 +106,6 @@ $(document).ready(function(){
 </head>
 
 <body>
-Hi
 
 </body>
 
