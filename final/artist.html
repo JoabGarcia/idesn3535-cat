@@ -23,6 +23,8 @@
 
 <script type="text/javascript" src="../slick-1.8.0/slick/slick.min.js"></script>
 
+<script src="../class_12/ratingapi.js"></script>
+
 <script>
 // let api;
 $(document).ready(function(){
@@ -39,6 +41,7 @@ $.ajax({
     let artist = getParameterByName('artist');
     let title = getParameterByName('title');
     let spotify = getParameterByName('spotify')
+    let band = title;
 
     response.albums.forEach(function(album){
       if (album.title === title) {
@@ -47,24 +50,83 @@ $.ajax({
     })
 
     
-        $("body").prepend(getTemplate(infoTemplate, {class: 'moreinfo', title: 'band' }) );
+      $('.your-class').slick({
+					autoplay: false
+
+					});
+
+     $("body").prepend(getTemplate(infoTemplate, {class: 'moreinfo', title: 'band' }) );
 
     $("body").prepend(getTemplate(headerTemplate, {class: 'artist', title: 'Artist'}) );
 
+    $('.your-class').slick({
+					autoplay: false
+
+					});
+
     $('#player').hide();
-    // $('#playlist').hide();
+    $('#playlist').hide();
 
-    $("h2").text(currentAlbum.title)
-    $("p").text(currentAlbum.artist)
-    $("span").text(currentAlbum.spotify)
+    $('.slick-arrow').hide();
+    $('.page_link').hide();
+
+    $("h2").text(currentAlbum.title).css("text-align","center").css("font-size", "60px")
+    $("p").text(currentAlbum.artist).css("text-align","center").css("font-size", "30px")
+
+			    		
 
 
+
+
+				function renderRatings() {
+					$("#ratings").html("");
+					const ratings = getRatings().ratings;
+					let totalStars = 0;
+					let totalRatings = 0;
+					ratings.forEach(function(r){
+
+						if (r){
+							const row = document.createElement('div');
+							row.innerText = `stars: ${r.stars} \n ${r.comment}`;
+							$("#ratings").append(row);
+							if (r.stars) {
+
+							totalRatings++;
+							totalStars += r.stars;
+						}
+
+
+						}
+
+					});
+
+					const averageRating = totalStars / totalRatings;
+					// $("#average").text("Average: "+averageRating);
+					$("#allstars").css("width", (averageRating/ 5 * 100) + "%");
+				}
+
+				
+					renderRatings();
+					$("#rate").on('click', function(){
+						const starAmount = parseInt($("#my_dropdown").val());
+						const comment = $("#my_comment").val();
+						addRating({ stars: starAmount, comment: comment });
+						renderRatings();
+						$("#my_comment").val("");
+						$("#my_dropdown").val("1");
+
+						console.log(starAmount);
+						console.log(comment);
+
+					});
 
     
     
  
 
  }
+
+
 });
 
 
@@ -75,6 +137,42 @@ $.ajax({
 </head>
 
 <body>
+
+<div id="comments">
+
+
+<h3>comments</h3>
+
+stars: <select id="my_dropdown">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+
+</select>
+
+<input id="my_comment" />
+
+<button id="rate">Rate</button>
+
+<div id="average"></div>
+
+<div id="average_stars">
+	<div id="nostars">
+		<img src="../class_12/nostars.svg" />
+	</div>
+
+	<div id="allstars">
+		<img src="../class_12/allstars.svg" />
+	</div>
+</div>
+
+<div id="ratings">
+
+</div>
+
+
 
 </body>
 
